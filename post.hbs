@@ -1,0 +1,48 @@
+{{!< default}}
+{{> header}}
+<main class="main_paranoidandroid" role="main">
+{{#post}}
+<article class="article_paranoidandroid" role="article" itemscope itemtype="http://schema.org/Article">
+<header class="postheader_paranoidandroid">
+<time class="date_paranoidandroid" datetime="{{date format="MMMM Do YYYY"}}" itemprop="datePublished">{{date format='MMMM Do YYYY'}}</time>
+<h1 class="posttitle_paranoidandroid" itemprop="headline">{{title}}</h1>
+</header>
+<div class="postcontent_paranoidandroid" itemprop="articleBody">
+{{content}}
+</div>
+{{#if tags}}
+<div class="posttags_paranoidandroid">
+Tags: {{tags separator=" • "}}
+</div>
+{{/if}}
+    <div class="sharepost_paranoidandroid">
+    <h4 class="share_paranoidandroid">Share this post: &nbsp;</h4>
+    <a class="share_paranoidandroid icon-twitter" target="_blank" href="http://twitter.com/share?text={{title}}&url={{url absolute="true"}}"><span class="hidethis_paranoidandroid">Twitter</span></a>
+    <a class="share_paranoidandroid icon-facebook" target="_blank" href="http://www.facebook.com/sharer.php?u={{url absolute="true"}}"><span class="hidethis_paranoidandroid">Facebook</span></a>
+    <a class="share_paranoidandroid icon-gplus" target="_blank" href="https://plus.google.com/share?url={{url absolute="true"}}"><span class="hidethis_paranoidandroid">Google+</span></a>
+    </div>
+        {{#if author}}
+        <footer class="postfooter_paranoidandroid">
+        <address itemscope itemtype="http://schema.org/Person">
+        {{#if author.image}}
+        <div class="authorimage_paranoidandroid"><img src="{{author.image}}" itemprop="image" /></div>
+        {{/if}}
+        <h4 class="authorname_paranoidandroid"><span itemprop="author">{{author.name}}</span></h4>
+        {{#if author.website}}
+        <div class="authorwebsite_paranoidandroid"><a href="{{author.website}}" itemprop="url">{{author.website}}</a></div>
+        {{/if}}
+        </address>
+        <div class="authorbio_paranoidandroid">
+        <p>{{author.bio}}</p>
+        </div>
+        </footer>
+        {{/if}}
+</article>
+{{/post}}
+{{#if pagination}}
+<div class="pagination_paranoidandroid">
+{{{pagination}}}
+</div>
+{{/if}}
+</main>
+{{> footer}}

@@ -1,0 +1,26 @@
+{{!< default}}
+{{> header}}
+<main class="main_paranoidandroid" role="main">
+{{#foreach posts}}
+<article class="article_paranoidandroid" role="article" itemscope itemtype="http://schema.org/Article">
+<header class="postheader_paranoidandroid">
+<time class="date_paranoidandroid" datetime="{{date format="MMMM Do YYYY"}}" itemprop="datePublished">{{date format='MMMM Do YYYY'}}</time>
+<h1 class="posttitle_paranoidandroid" itemprop="headline"><a href="{{{url}}}" rel="bookmark">{{title}}</a></h1>
+</header>
+<div class="postcontent_paranoidandroid" itemprop="articleBody">
+{{content}}
+</div>
+{{#if tags}}
+<div class="posttags_paranoidandroid">
+Tags: {{tags separator=" • "}}
+</div>
+{{/if}}
+</article>
+{{/foreach}}
+{{#if pagination}}
+<div class="pagination_paranoidandroid">
+{{{pagination}}}
+</div>
+{{/if}}
+</main>
+{{> footer}}
